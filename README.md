@@ -1,37 +1,112 @@
-# Disaster Relief & Resource Management System (Node + Express + MongoDB)
 
-This is a PHP/MySQL-to-Node.js migration. The original CSS, JS and images are retained in `public/`; PHP source is retained only under `migration-reference/` and is NOT executed. The public landing page and authentication pages have been ported to EJS. Core MongoDB models and REST endpoints are provided. Some legacy admin/victim/volunteer page workflows still need UI-by-UI migration; do not treat this as a complete production deployment yet.
+# Disaster Relief & Resource Management System
+
+A web-based Disaster Relief & Resource Management System built with Node.js, Express.js, MongoDB, HTML, CSS, JavaScript, and EJS.
+
+This project aims to simplify disaster relief operations by connecting administrators, victims, and volunteers through a centralized platform.
+
+## Technology Stack
+
+- Frontend: HTML, CSS, JavaScript, EJS
+- Backend: Node.js, Express.js
+- Database: MongoDB
+- Authentication: Express Session and Password Hashing
+
+## Features
+
+- User authentication and registration
+- Role-based access for Admin, Victim, and Volunteer
+- Admin dashboard
+- Victim resource request management
+- Volunteer request and delivery management
+- Disaster report management
+- Resource management
+- MongoDB database integration
+- Responsive dashboard interface
+
+## Project Structure
+
+- `public/` – CSS, JavaScript, and static assets
+- `views/` – EJS templates and frontend pages
+- `src/models/` – MongoDB models
+- `migration-reference/` – Original PHP project files kept for reference
+- `server.js` – Express application entry point
+- `reset-admin.js` – Admin account setup script
 
 ## Requirements
-- Node.js 20+ (your Node 24 is fine)
-- MongoDB Community Server running locally, or MongoDB Atlas URI
 
-## Setup (Windows CMD)
+- Node.js 20+
+- MongoDB Community Server or MongoDB Atlas
+- Git
+
+## Installation (Windows CMD)
+
+Clone the repository:
+
+```cmd
+git clone https://github.com/ariba0904/Disaster_Relief_System.git
+```
+
+Open the project folder:
+
+```cmd
+cd Disaster_Relief_System
+```
+
+Install dependencies:
+
 ```cmd
 npm install
-copy .env.example .env
-````
-Edit `.env` and set `MONGODB_URI` and a long random `SESSION_SECRET`. Then:
+```
+
+Create your environment file:
+
 ```cmd
-npm run check
+copy .env.example .env
+```
+
+Configure your `.env` file with your MongoDB connection string and a secure session secret.
+
+Run the application:
+
+```cmd
 npm run dev
 ```
-Open http://localhost:5000 and http://localhost:5000/api/health.
 
-## Routes
-- `/` landing page
-- `/login`, `/register`, `/logout`
-- `/:role/dashboard` (Admin/Victim/Volunteer)
-- `/admin/resources`, `/admin/requests`, `/admin/reports`
-- `/victim/requests`, `/volunteer/requests`
-- API: `/api/resources`, `/api/requests`, `/api/reports`, `/api/health`
+Open in your browser:
 
-## Important
-- No PHP, XAMPP, MySQL or phpMyAdmin is required by this Node app.
-- Existing MySQL records are not automatically imported. `disaster.sql` is retained in migration-reference only; migrate data separately if needed.
-- For first Admin account, create one manually using a one-time seed script or MongoDB Compass; public registration intentionally allows only Victim and Volunteer.
-- Configure MongoDB Atlas + Render for deployment. Never commit `.env`.
+http://localhost:5000
 
+## Database
 
-## Original frontend restoration
-The original `Team-collaboration` repository's landing-page content, login/register layout, dashboard styles, and sidebar navigation have been carried into the Express/EJS application. Original CSS files are kept in `public/css/`. The original PHP repository is preserved under `migration-reference/` for reference only; it is not executed by Node.js.
+This project uses MongoDB. It does not require PHP, XAMPP, MySQL, or phpMyAdmin.
+
+Original PHP source files are preserved in `migration-reference/` for reference only. They are not executed by the Node.js application.
+
+## Admin Account
+
+Use the project's admin setup script to initialize the admin account:
+
+```cmd
+npm run reset-admin
+```
+
+Keep your credentials secure. Never publish passwords or `.env` files.
+
+## Future Improvements
+
+- Complete migration of all legacy dashboard workflows
+- Improve role-based functionality
+- Enhance request and delivery tracking
+- Deploy the backend and database to cloud services
+
+## Author
+
+**Jannatul Maowa Ariba**
+
+CSE Student | International Islamic University Chittagong (IIUC)
+
+GitHub: https://github.com/ariba0904
+
+Portfolio: https://j-m-ariba.vercel.app/
+
