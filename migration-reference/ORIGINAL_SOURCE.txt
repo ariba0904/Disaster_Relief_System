@@ -1,0 +1,2 @@
+Verbatim source snapshot from https://github.com/ariba0904/Team-collaboration
+These PHP files are retained as migration reference only. The running application uses Node.js, Express, EJS and MongoDB.

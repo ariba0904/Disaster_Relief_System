@@ -1,0 +1,12 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title><%= role %> Dashboard | DRRMS</title><link rel="stylesheet" href="/css/admin.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"><link rel="stylesheet" href="/css/dashboard.css"></head><body>
+<div class="dashboard"><%- include('partials/sidebar') %><div class="main-content"><%- include('partials/topbar',{pageTitle:role+' Dashboard'}) %>
+<main class="content"><h2><%= role %> Dashboard</h2><p>Welcome back, <strong><%= user.name %></strong>. Here is your current overview.</p>
+<div class="cards">
+<% if(role==='Admin'){ %><div class="card"><i class="fa-solid fa-users"></i><h3>Total Users</h3><p><%= stats.users %></p></div><div class="card"><i class="fa-solid fa-user-group"></i><h3>Volunteers</h3><p><%= stats.volunteers %></p></div><div class="card"><i class="fa-solid fa-house-flood-water"></i><h3>Victims</h3><p><%= stats.victims %></p></div><% } %>
+<div class="card"><i class="fa-solid fa-box-open"></i><h3>Resources</h3><p><%= stats.resources %></p></div><div class="card"><i class="fa-solid fa-file-circle-check"></i><h3>Resource Requests</h3><p><%= stats.requests %></p></div><div class="card"><i class="fa-solid fa-triangle-exclamation"></i><h3>Disaster Reports</h3><p><%= stats.reports %></p></div>
+</div>
+<div class="action-cards">
+<% if(role==='Admin'){ %><a class="action-card" href="/admin/resources"><i class="fa-solid fa-boxes-stacked"></i><h3>Manage Resources</h3><p>Add and review available relief resources.</p></a><a class="action-card" href="/admin/requests"><i class="fa-solid fa-clipboard-list"></i><h3>Manage Requests</h3><p>Review resource requests submitted by victims.</p></a><a class="action-card" href="/admin/reports"><i class="fa-solid fa-triangle-exclamation"></i><h3>Disaster Reports</h3><p>Review reported disaster incidents.</p></a>
+<% } else if(role==='Victim'){ %><a class="action-card" href="/victim/requests"><i class="fa-solid fa-truck-fast"></i><h3>My Requests</h3><p>Track the status of your resource requests.</p></a>
+<% } else { %><a class="action-card" href="/volunteer/requests"><i class="fa-solid fa-box"></i><h3>Assigned Requests</h3><p>View resource requests assigned to you.</p></a><% } %>
+</div></main><%- include('partials/footer') %></div></div></body></html>

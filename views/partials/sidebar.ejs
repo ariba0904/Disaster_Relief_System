@@ -1,0 +1,17 @@
+<aside class="sidebar">
+  <h2>DRRMS</h2>
+  <ul>
+    <li><a href="/<%= user.role.toLowerCase() %>/dashboard">🏠 Dashboard</a></li>
+    <% if(user.role === 'Admin'){ %>
+      <li><a href="/admin/resources">📦 Resource Management</a></li>
+      <li><a href="/admin/requests">📋 Resource Requests</a></li>
+      <li><a href="/admin/reports">🚨 Disaster Reports</a></li>
+    <% } else if(user.role === 'Victim'){ %>
+      <li><a href="/victim/requests">🚚 My Resource Requests</a></li>
+    <% } else { %>
+      <li><a href="/volunteer/requests">📦 Assigned Requests</a></li>
+    <% } %>
+    <li><a href="/">🌐 Main Website</a></li>
+    <li><form method="POST" action="/logout"><button type="submit" class="sidebar-logout">🚪 Logout</button></form></li>
+  </ul>
+</aside>

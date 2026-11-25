@@ -1,0 +1,1 @@
+const mongoose=require('mongoose'); const schema=new mongoose.Schema({resourceName:{type:String,required:true,trim:true},category:{type:String,required:true},unit:{type:String,required:true},availableStock:{type:Number,default:0,min:0},totalStock:{type:Number,default:0,min:0},expiryDate:Date},{timestamps:true}); module.exports=mongoose.model('Resource',schema);
